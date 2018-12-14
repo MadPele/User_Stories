@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All rooms</title>
+</head>
+<body>
+    <center><h2>All rooms</h2></center><br><br>
+    {% for room in rooms %}
+        Room id: {{ room.id }}<br>
+        Name: {{ room.name }}<br>
+        Capacity: {{ room.capacity }}<br>
+        {% if room.projector == True %}
+            Projector: Yes<br><br>
+        {% else %}
+            Projector: No<br><br>
+        {% endif %}
+    {% endfor %}
+
+
+</body>
+</html>

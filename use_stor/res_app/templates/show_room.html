@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <center><h2>Room details</h2></center><br><br>
+    Room id: {{ room.id }}<br>
+    Name: {{ room.name }}<br>
+    Capacity: {{ room.capacity }}<br>
+    {% if room.projector == True %}
+        Projector: Yes<br><br>
+    {% else %}
+        Projector: No<br><br>
+    {% endif %}
+    <form method="GET" action="{% url 'room_reservation' room.id %}">
+        <input type="submit" value="Make reservations" />
+    </form><br><br>
+
+    <h3>Reservations for {{room.name }}:</h3>
+    {% for reservation in reservations %}
+    {% if today <= reservation.date %}
+        {{ reservation.date }}<br>
+    {% endif %}
+    {% endfor %}
+
+</body>
+</html>
